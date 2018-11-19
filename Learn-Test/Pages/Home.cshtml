@@ -1,0 +1,20 @@
+﻿@page
+@model Learn_Test.Pages.HomeModel
+@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<IdentityUser> SignInManager
+
+@{
+    ViewData["Title"] = "Home";
+    ViewData["noFooter"] = "1";
+    bool isLoggedIn = SignInManager.IsSignedIn(User);
+}
+@if (!isLoggedIn)
+{
+    <title>FORBIDDEN</title>
+    <script>
+        window.location.replace("../");
+    </script>
+}
+
+<h1>test</h1>
+
